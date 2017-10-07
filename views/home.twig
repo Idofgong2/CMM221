@@ -1,57 +1,31 @@
-<!DOCTYPE html>   
-<html lang="en">
-<head>
-	<meta charset="UTF-8">
-	<title>CMM 19</title>
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.5.3/css/bulma.min.css">
-	<link rel="stylesheet" href="/assets/home.css">
-</head>
-<body>
-	<header >
-		<div class="has-text-centered">
-		<img src="/assets/images/logo.png" alt="" width="200" height="auto">
-		</div>
-		<nav class="navbar-tabs is-size-2 ">
-			
-			<a href="#" class="navbar-item">work</a>
-			<a href="#" class="navbar-item">interview</a>
-			<a href="#" class="navbar-item">work</a>
-			<a href="#" class="navbar-item">work</a>
-			<a href="#" class="navbar-item">work</a>
-			<a href="#" class="navbar-item">work</a>
-	
+  
+  {% extends 'layout/base.twig' %}
 
-		</nav>
-		
-	</header>
+  {% block stylesheet %}
+  	<link rel="stylesheet" href="/assets/home.css">
+  {% endblock %}
+  	
+  {% block content %}
+
+	
 	<main>
 		<section class="banner">
 		<div class="highlight ">
 			<div class="columns is-marginless">
-				<div class="column highlight-item  ">
-					<h1 class="is-size-2">Hello</h1>
+				<div class="column highlight-item " style="background-image: url({{highlight.url}});">
+					<h1>{{highlight.title}}</h1>
 				
 				</div>
 			</div>
 		</div> 
 		<div class="thumbnail ">
 			<div class="columns is-marginless">
-				<div class="column thumbnail-item is-paddingless">
-					<img src="/assets/images/home/banner/thumbnail-1.jpg " alt="" width="100%" height="auto">
-					
-				</div>
-				<div class="column thumbnail-item is-paddingless">
-					<img src="/assets/images/home/banner/thumbnail-2.jpg" alt="" width="100%" height="auto">
-				</div>
-				<div class="column thumbnail-item is-paddingless">
-					<img src="/assets/images/home/banner/thumbnail-3.jpg" alt="" width="100%" height="auto">
-					
-				</div>
-				<div class="column thumbnail-item is-paddingless">
-					<img src="/assets/images/home/banner/thumbnail-4.jpg" alt="" width="100%" height="auto">
-					
-				</div>
-							
+				{% for item in thumbnail %}
+				<a href="#" class="column thumbnail-item" style="background-image: url({{ item.url }});">
+					{{ item.title }}
+				</a>
+				
+				(% endfor %)
 
 			</div>
 		</div>
@@ -195,5 +169,5 @@
 			</div>
 		</section>
 	</main>
-</body>
-</html>
+
+{% endblock %}	
